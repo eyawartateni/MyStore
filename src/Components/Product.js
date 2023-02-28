@@ -3,6 +3,8 @@ import React,{Component} from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Alert from "react-bootstrap/Alert";
+import { NavLink } from "react-router-dom";
+
 
 class Product extends Component
 {
@@ -55,10 +57,20 @@ render()
 {
     return(
         <div>
+            
 <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={require(`../assets/images/${this.props.product.img}`)} />
       <Card.Body>
+       
+
+      <NavLink to={`${this.props.product.name}`}>
+
         <Card.Title>{this.props.product.name}</Card.Title>
+
+        </NavLink>
+        <Card.Title>{this.props.product.name}</Card.Title>
+
+       
         <Card.Text>
          {this.props.product.description}
         </Card.Text>

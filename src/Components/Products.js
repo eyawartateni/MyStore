@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Col, Button, Row, Container, Badge, Alert } from "react-bootstrap";
 import Product from "./Product";
 import products from "../products";
+import NavBar from "./NavBar";
 
 
 class Products extends Component {
@@ -26,6 +27,7 @@ class Products extends Component {
   render() {
     return (
       <div>
+        
          {this.state.welcome_msg && (
           <Alert variant="success">
             <Alert.Heading>

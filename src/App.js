@@ -8,6 +8,14 @@ import Message from "./Components/Message";
 import Counter from "./Components/Counter";
 import Product from "./Components/Product";
 import Products from "./Components/Products";
+import { Routes, Route } from "react-router-dom";
+//import NotFound from "./Components/NotFound";
+import Home from "./Components/Home";
+import NavBar from "./Components/NavBar";
+import { NavLink } from "react-router-dom";
+import Test from "./Components/Test";
+import ProuctDetails from "./Components/ProductDetails";
+const NotFound=React.lazy(()=>import('./Components/NotFound'));
 
 
 function App() {
@@ -28,9 +36,21 @@ function App() {
   }*/
 
   return (
+    <div>
+      <NavBar/>
     <div className="app">
-      <Products />
-   {/*<Counter></Counter>
+
+    <Routes>
+        <Route path="/Parent">
+          <Route index element={<Products />}></Route>
+          <Route path=":name" element={<ProuctDetails />}></Route>
+        </Route>
+        <Route path="/products" element={<Products />}></Route>
+        <Route path="/test" element={<Test />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
+      </Routes>
+
+      {/*<Counter></Counter>
       <Greet name="eyo" />
       <Welcome name="eyo" />
       <Hello />
@@ -45,6 +65,7 @@ function App() {
       ))}
 */}
 
+    </div>
     </div>
   );
 }
